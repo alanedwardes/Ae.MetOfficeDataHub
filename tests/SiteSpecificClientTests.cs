@@ -32,6 +32,7 @@ public class SiteSpecificClientTests
         var client = new SiteSpecificClient(httpClient);
 
         var response = await client.GetHourlyForecastAsync("BD1", true, true, 51.509865f, -0.118092f);
+        Assert.Equal("FeatureCollection", response.Type);
 
         Assert.Empty(response.AdditionalProperties);
         HourlyFeature feature = Assert.Single(response.Features);
@@ -62,6 +63,7 @@ public class SiteSpecificClientTests
         var client = new SiteSpecificClient(httpClient);
 
         ThreeHourlyResponse response = await client.GetThreeHourlyForecastAsync("BD1", true, true, 51.509865f, -0.118092f);
+        Assert.Equal("FeatureCollection", response.Type);
 
         Assert.Empty(response.AdditionalProperties);
         ThreeHourlyFeature feature = Assert.Single(response.Features);
@@ -92,6 +94,7 @@ public class SiteSpecificClientTests
         var client = new SiteSpecificClient(httpClient);
 
         DailyResponse response = await client.GetDailyForecastAsync("BD1", true, true, 51.509865f, -0.118092f);
+        Assert.Equal("FeatureCollection", response.Type);
 
         Assert.Empty(response.AdditionalProperties);
         DailyFeature feature = Assert.Single(response.Features);
