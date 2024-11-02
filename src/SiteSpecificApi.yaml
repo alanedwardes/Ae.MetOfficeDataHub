@@ -17,25 +17,32 @@ paths:
         - name: dataSource
           in: query
           description: The request data source must be BD1.
-          schema: {}
+          schema:
+            type: string
         - name: excludeParameterMetadata
           in: query
           description: If true, exclude parameter metadata in the response. If false or undefined, the parameter metadata is returned.
-          schema: {}
+          schema:
+            type: boolean
         - name: includeLocationName
           in: query
           description: If true, include location name in the response. If false or undefined, no location name is returned.
-          schema: {}
+          schema:
+            type: boolean
         - name: latitude
           in: query
           description: The request latitude value in range -85/+85 expressed as a decimal fraction.
           required: true
-          schema: {}
+          schema:
+            type: number
+            format: float
         - name: longitude
           in: query
           description: The request longitude value in range -180/+180 expressed as a decimal fraction.
           required: true
-          schema: {}
+          schema:
+            type: number
+            format: float
       responses:
         '200':
           description: The request was fulfilled successfully
@@ -43,39 +50,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HourlyResponse'
-        '400':
-          description: The server could not service the request because it was malformed.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/VndError'
-        '403':
-          description: Access to the requested URL is forbidden.
-          content: {}
-        '404':
-          description: The server could not service the request because the requested resource did not exist
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/VndError'
-        '405':
-          description: The server could not service the request because it does not support the requested HTTP action - only get requests are supported
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/VndError'
-        '415':
-          description: The server could not service the request because the media type requested is not supported - this service only exposes json data
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/VndError'
-        '500':
-          description: The server encountered an internal error or misconfiguration and was unable to complete the request - this is not a recoverable error for a user of the API
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/VndError'
   /point/three-hourly:
     get:
       summary: Find nearest forecast data that matches the request criteria
@@ -84,65 +58,39 @@ paths:
         - name: dataSource
           in: query
           description: The request data source must be BD1.
-          schema: {}
+          schema:
+            type: string
         - name: excludeParameterMetadata
           in: query
           description: If true, exclude parameter metadata in the response. If false or undefined, the parameter metadata is returned.
-          schema: {}
+          schema:
+            type: boolean
         - name: includeLocationName
           in: query
           description: If true, include location name in the response. If false or undefined, no location name is returned.
-          schema: {}
+          schema:
+            type: boolean
         - name: latitude
           in: query
           description: The request latitude value in range -85/+85 expressed as a decimal fraction.
           required: true
-          schema: {}
+          schema:
+            type: number
+            format: float
         - name: longitude
           in: query
           description: The request longitude value in range -180/+180 expressed as a decimal fraction.
           required: true
-          schema: {}
+          schema:
+            type: number
+            format: float
       responses:
         '200':
           description: The request was fulfilled successfully
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HourlyResponse'
-        '400':
-          description: The server could not service the request because it was malformed.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/VndError'
-        '403':
-          description: Access to the requested URL is forbidden.
-          content: {}
-        '404':
-          description: The server could not service the request because the requested resource did not exist
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/VndError'
-        '405':
-          description: The server could not service the request because it does not support the requested HTTP action - only get requests are supported
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/VndError'
-        '415':
-          description: The server could not service the request because the media type requested is not supported - this service only exposes json data
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/VndError'
-        '500':
-          description: The server encountered an internal error or misconfiguration and was unable to complete the request - this is not a recoverable error for a user of the API
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/VndError'
+                $ref: '#/components/schemas/ThreeHourlyResponse'
   /point/daily:
     get:
       summary: Find nearest forecast data that matches the request criteria
@@ -151,25 +99,32 @@ paths:
         - name: dataSource
           in: query
           description: The request data source must be BD1.
-          schema: {}
+          schema:
+            type: string
         - name: excludeParameterMetadata
           in: query
           description: If true, exclude parameter metadata in the response. If false or undefined, the parameter metadata is returned.
-          schema: {}
+          schema:
+            type: boolean
         - name: includeLocationName
           in: query
           description: If true, include location name in the response. If false or undefined, no location name is returned.
-          schema: {}
+          schema:
+            type: boolean
         - name: latitude
           in: query
           description: The request latitude value in range -85/+85 expressed as a decimal fraction.
           required: true
-          schema: {}
+          schema:
+            type: number
+            format: float
         - name: longitude
           in: query
           description: The request longitude value in range -180/+180 expressed as a decimal fraction.
           required: true
-          schema: {}
+          schema:
+            type: number
+            format: float
       responses:
         '200':
           description: The request was fulfilled successfully
@@ -177,282 +132,338 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DailyResponse'
-        '400':
-          description: The server could not service the request because it was malformed.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/VndError'
-        '403':
-          description: Access to the requested URL is forbidden.
-          content: {}
-        '404':
-          description: The server could not service the request because the requested resource did not exist
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/VndError'
-        '405':
-          description: The server could not service the request because it does not support the requested HTTP action - only get requests are supported
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/VndError'
-        '415':
-          description: The server could not service the request because the media type requested is not supported - this service only exposes json data
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/VndError'
-        '500':
-          description: The server encountered an internal error or misconfiguration and was unable to complete the request - this is not a recoverable error for a user of the API
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/VndError'
 components:
   schemas:
+    Location:
+      type: object
+      properties: 
+        name: 
+          type: string
+    Geometry:
+      type: object
+      properties: 
+        type: 
+          type: string
+        coordinates: 
+          type: array
+          items: 
+            type: number
+    Feature:
+      type: object
+      properties: 
+        type: 
+          type: string
+        geometry: 
+          $ref: '#/components/schemas/Geometry'
+    FeatureProperties:
+      type: object
+      properties:
+        location:
+          $ref: '#/components/schemas/Location'
+        requestPointDistance: 
+          type: number
+        modelRunDate: 
+          type: string
+          format: date-time
+    HourlyFeatureProperties:
+      allOf:
+        - $ref: '#/components/schemas/FeatureProperties'
+        - type: object
+          properties:
+            timeSeries: 
+              type: array
+              items: 
+                $ref: '#/components/schemas/HourlyTimeSeries'
+    HourlyFeature:
+      allOf:
+        - $ref: '#/components/schemas/Feature'
+        - type: object
+          properties:
+            properties: 
+              $ref: '#/components/schemas/HourlyFeatureProperties'
     HourlyResponse:
       type: object
       properties:
         type: 
           type: string
-        features: 
+        features:
           type: array
           items: 
-            type: object
+            $ref: '#/components/schemas/HourlyFeature'
+    ThreeHourlyFeatureProperties:
+      allOf:
+        - $ref: '#/components/schemas/FeatureProperties'
+        - type: object
+          properties:
+            timeSeries: 
+              type: array
+              items: 
+                $ref: '#/components/schemas/ThreeHourlyTimeSeries'
+    ThreeHourlyFeature:
+      allOf:
+        - $ref: '#/components/schemas/Feature'
+        - type: object
+          properties:
             properties: 
-              type: 
-                type: string
-              geometry: 
-                type: object
-                properties: 
-                  type: 
-                    type: string
-                  coordinates: 
-                    type: array
-                    items: 
-                      type: number
-              properties: 
-                type: object
-                properties: 
-                  location: 
-                    type: object
-                    properties: 
-                      name: 
-                        type: string
-                  requestPointDistance: 
-                    type: number
-                  modelRunDate: 
-                    type: string
-                  timeSeries: 
-                    type: array
-                    items: 
-                      type: object
-                      properties: 
-                        time: 
-                          type: string
-                        screenTemperature: 
-                          type: number
-                        maxScreenAirTemp: 
-                          type: number
-                        minScreenAirTemp: 
-                          type: number
-                        screenDewPointTemperature: 
-                          type: number
-                        feelsLikeTemperature: 
-                          type: number
-                        windSpeed10m: 
-                          type: number
-                        windDirectionFrom10m: 
-                          type: integer
-                          format: int32
-                        windGustSpeed10m: 
-                          type: number
-                        max10mWindGust: 
-                          type: number
-                        visibility: 
-                          type: integer
-                          format: int32
-                        screenRelativeHumidity: 
-                          type: number
-                        mslp: 
-                          type: integer
-                          format: int32
-                        uvIndex: 
-                          type: integer
-                          format: int32
-                        significantWeatherCode: 
-                          type: integer
-                          format: int32
-                        precipitationRate: 
-                          type: number
-                          format: float
-                        totalPrecipAmount: 
-                          type: number
-                          format: float
-                        totalSnowAmount: 
-                          type: integer
-                          format: int32
-                        probOfPrecipitation: 
-                          type: integer
-                          format: int32
+              $ref: '#/components/schemas/ThreeHourlyFeatureProperties'
+    ThreeHourlyResponse:
+      type: object
+      properties:
+        type: 
+          type: string
+        features:
+          type: array
+          items: 
+            $ref: '#/components/schemas/ThreeHourlyFeature'
+    DailyFeatureProperties:
+      allOf:
+        - $ref: '#/components/schemas/FeatureProperties'
+        - type: object
+          properties:
+            timeSeries: 
+              type: array
+              items: 
+                $ref: '#/components/schemas/DailyTimeSeries'
+    DailyFeature:
+      allOf:
+        - $ref: '#/components/schemas/Feature'
+        - type: object
+          properties:
+            properties: 
+              $ref: '#/components/schemas/DailyFeatureProperties'
     DailyResponse:
       type: object
       properties:
         type: 
           type: string
-        features: 
+        features:
           type: array
           items: 
-            type: object
-            properties: 
-              type: 
-                type: string
-              geometry: 
-                type: object
-                properties: 
-                  type: 
-                    type: string
-                  coordinates: 
-                    type: array
-                    items: 
-                      type: number
-              properties: 
-                type: object
-                properties: 
-                  location: 
-                    type: object
-                    properties: 
-                      name: 
-                        type: string
-                  requestPointDistance: 
-                    type: number
-                  modelRunDate: 
-                    type: string
-                  timeSeries: 
-                    type: array
-                    items: 
-                      type: object
-                      properties: 
-                        time: 
-                          type: string
-                        midday10MWindSpeed: 
-                          type: number
-                        midnight10MWindSpeed: 
-                          type: number
-                        midday10MWindDirection: 
-                          type: integer
-                          format: int32
-                        midnight10MWindDirection: 
-                          type: integer
-                          format: int32
-                        midday10MWindGust: 
-                          type: number
-                        midnight10MWindGust: 
-                          type: number
-                        middayVisibility: 
-                          type: integer
-                          format: int32
-                        midnightVisibility: 
-                          type: integer
-                          format: int32
-                        middayRelativeHumidity: 
-                          type: number
-                        midnightRelativeHumidity: 
-                          type: number
-                        middayMslp: 
-                          type: integer
-                          format: int32
-                        midnightMslp: 
-                          type: integer
-                          format: int32
-                        nightSignificantWeatherCode: 
-                          type: integer
-                          format: int32
-                        dayMaxScreenTemperature: 
-                          type: number
-                        nightMinScreenTemperature: 
-                          type: number
-                        dayUpperBoundMaxTemp: 
-                          type: number
-                        nightUpperBoundMinTemp: 
-                          type: number
-                        dayLowerBoundMaxTemp: 
-                          type: number
-                        nightLowerBoundMinTemp: 
-                          type: number
-                        nightMinFeelsLikeTemp: 
-                          type: number
-                        dayUpperBoundMaxFeelsLikeTemp: 
-                          type: number
-                        nightUpperBoundMinFeelsLikeTemp: 
-                          type: number
-                        dayLowerBoundMaxFeelsLikeTemp: 
-                          type: number
-                        nightLowerBoundMinFeelsLikeTemp: 
-                          type: number
-                        nightProbabilityOfPrecipitation: 
-                          type: integer
-                          format: int32
-                        nightProbabilityOfSnow: 
-                          type: integer
-                          format: int32
-                        nightProbabilityOfHeavySnow: 
-                          type: integer
-                          format: int32
-                        nightProbabilityOfRain: 
-                          type: integer
-                          format: int32
-                        nightProbabilityOfHeavyRain: 
-                          type: integer
-                          format: int32
-                        nightProbabilityOfHail: 
-                          type: integer
-                          format: int32
-                        nightProbabilityOfSferics: 
-                          type: integer
-                          format: int32
-                        maxUvIndex: 
-                          type: integer
-                          format: int32
-                        daySignificantWeatherCode: 
-                          type: integer
-                          format: int32
-                        dayMaxFeelsLikeTemp: 
-                          type: number
-                        dayProbabilityOfPrecipitation: 
-                          type: integer
-                          format: int32
-                        dayProbabilityOfSnow: 
-                          type: integer
-                          format: int32
-                        dayProbabilityOfHeavySnow: 
-                          type: integer
-                          format: int32
-                        dayProbabilityOfRain: 
-                          type: integer
-                          format: int32
-                        dayProbabilityOfHeavyRain: 
-                          type: integer
-                          format: int32
-                        dayProbabilityOfHail: 
-                          type: integer
-                          format: int32
-                        dayProbabilityOfSferics: 
-                          type: integer
-                          format: int32
-    VndError:
-      title: VndError
+            $ref: '#/components/schemas/DailyFeature'
+    TimeSeries:
       type: object
       properties:
-        logref:
+        time:
           type: string
-        message:
-          type: string
-  securitySchemes:
-    APIKey:
-      type: apiKey
-      description: The API Key generated with your Subscription in Weather DataHub, this must be set as 'apikey' in your header.
-      name: apikey
-      in: header
+          format: date-time
+    DailyTimeSeries:
+      allOf:
+        - $ref: '#/components/schemas/TimeSeries'
+        - type: object
+          properties:
+            midday10MWindSpeed: 
+              type: number
+            midnight10MWindSpeed: 
+              type: number
+            midday10MWindDirection: 
+              type: integer
+              format: int32
+            midnight10MWindDirection: 
+              type: integer
+              format: int32
+            midday10MWindGust: 
+              type: number
+            midnight10MWindGust: 
+              type: number
+            middayVisibility: 
+              type: integer
+              format: int32
+            midnightVisibility: 
+              type: integer
+              format: int32
+            middayRelativeHumidity: 
+              type: number
+            midnightRelativeHumidity: 
+              type: number
+            middayMslp: 
+              type: integer
+              format: int32
+            midnightMslp: 
+              type: integer
+              format: int32
+            nightSignificantWeatherCode: 
+              type: integer
+              format: int32
+            dayMaxScreenTemperature: 
+              type: number
+            nightMinScreenTemperature: 
+              type: number
+            dayUpperBoundMaxTemp: 
+              type: number
+            nightUpperBoundMinTemp: 
+              type: number
+            dayLowerBoundMaxTemp: 
+              type: number
+            nightLowerBoundMinTemp: 
+              type: number
+            nightMinFeelsLikeTemp: 
+              type: number
+            dayUpperBoundMaxFeelsLikeTemp: 
+              type: number
+            nightUpperBoundMinFeelsLikeTemp: 
+              type: number
+            dayLowerBoundMaxFeelsLikeTemp: 
+              type: number
+            nightLowerBoundMinFeelsLikeTemp: 
+              type: number
+            nightProbabilityOfPrecipitation: 
+              type: integer
+              format: int32
+            nightProbabilityOfSnow: 
+              type: integer
+              format: int32
+            nightProbabilityOfHeavySnow: 
+              type: integer
+              format: int32
+            nightProbabilityOfRain: 
+              type: integer
+              format: int32
+            nightProbabilityOfHeavyRain: 
+              type: integer
+              format: int32
+            nightProbabilityOfHail: 
+              type: integer
+              format: int32
+            nightProbabilityOfSferics: 
+              type: integer
+              format: int32
+            maxUvIndex: 
+              type: integer
+              format: int32
+            daySignificantWeatherCode: 
+              type: integer
+              format: int32
+            dayMaxFeelsLikeTemp: 
+              type: number
+            dayProbabilityOfPrecipitation: 
+              type: integer
+              format: int32
+            dayProbabilityOfSnow: 
+              type: integer
+              format: int32
+            dayProbabilityOfHeavySnow: 
+              type: integer
+              format: int32
+            dayProbabilityOfRain: 
+              type: integer
+              format: int32
+            dayProbabilityOfHeavyRain: 
+              type: integer
+              format: int32
+            dayProbabilityOfHail: 
+              type: integer
+              format: int32
+            dayProbabilityOfSferics: 
+              type: integer
+              format: int32
+    HourlyTimeSeries:
+      allOf:
+        - $ref: '#/components/schemas/TimeSeries'
+        - type: object
+          properties:
+            screenTemperature: 
+              type: number
+            maxScreenAirTemp: 
+              type: number
+            minScreenAirTemp: 
+              type: number
+            screenDewPointTemperature: 
+              type: number
+            feelsLikeTemperature: 
+              type: number
+            windSpeed10m: 
+              type: number
+            windDirectionFrom10m: 
+              type: integer
+              format: int32
+            windGustSpeed10m: 
+              type: number
+            max10mWindGust: 
+              type: number
+            visibility: 
+              type: integer
+              format: int32
+            screenRelativeHumidity: 
+              type: number
+            mslp: 
+              type: integer
+              format: int32
+            uvIndex: 
+              type: integer
+              format: int32
+            significantWeatherCode: 
+              type: integer
+              format: int32
+            precipitationRate: 
+              type: number
+              format: float
+            totalPrecipAmount: 
+              type: number
+              format: float
+            totalSnowAmount: 
+              type: integer
+              format: int32
+            probOfPrecipitation: 
+              type: integer
+              format: int32
+    ThreeHourlyTimeSeries:
+      allOf:
+        - $ref: '#/components/schemas/TimeSeries'
+        - type: object
+          properties:
+            maxScreenAirTemp:
+              type: number
+            minScreenAirTemp:
+              type: number
+            max10mWindGust:
+              type: number
+            significantWeatherCode:
+              type: integer
+              format: int32
+            totalPrecipAmount:
+              type: integer
+              format: int32
+            totalSnowAmount:
+              type: integer
+              format: int32
+            windSpeed10m:
+              type: number
+            windDirectionFrom10m:
+              type: integer
+              format: int32
+            windGustSpeed10m:
+              type: number
+            visibility:
+              type: integer
+              format: int32
+            mslp:
+              type: integer
+              format: int32
+            screenRelativeHumidity:
+              type: number
+            feelsLikeTemp:
+              type: number
+            uvIndex:
+              type: integer
+              format: int32
+            probOfPrecipitation:
+              type: integer
+              format: int32
+            probOfSnow:
+              type: integer
+              format: int32
+            probOfHeavySnow:
+              type: integer
+              format: int32
+            probOfRain:
+              type: integer
+              format: int32
+            probOfHeavyRain:
+              type: integer
+              format: int32
+            probOfHail:
+              type: integer
+              format: int32
+            probOfSferics:
+              type: integer
+              format: int32

@@ -35,7 +35,7 @@ namespace Ae.MetOfficeDataHub
         /// <param name="longitude">The request longitude value in range -180/+180 expressed as a decimal fraction.</param>
         /// <returns>The request was fulfilled successfully</returns>
         /// <exception cref="SiteSpecificApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<HourlyResponse> GetHourlyForecastAsync(object dataSource, object excludeParameterMetadata, object includeLocationName, object latitude, object longitude);
+        System.Threading.Tasks.Task<HourlyResponse> GetHourlyForecastAsync(string dataSource, bool? excludeParameterMetadata, bool? includeLocationName, float latitude, float longitude);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -48,7 +48,7 @@ namespace Ae.MetOfficeDataHub
         /// <param name="longitude">The request longitude value in range -180/+180 expressed as a decimal fraction.</param>
         /// <returns>The request was fulfilled successfully</returns>
         /// <exception cref="SiteSpecificApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<HourlyResponse> GetHourlyForecastAsync(object dataSource, object excludeParameterMetadata, object includeLocationName, object latitude, object longitude, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<HourlyResponse> GetHourlyForecastAsync(string dataSource, bool? excludeParameterMetadata, bool? includeLocationName, float latitude, float longitude, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
         /// Find nearest forecast data that matches the request criteria
@@ -60,32 +60,7 @@ namespace Ae.MetOfficeDataHub
         /// <param name="longitude">The request longitude value in range -180/+180 expressed as a decimal fraction.</param>
         /// <returns>The request was fulfilled successfully</returns>
         /// <exception cref="SiteSpecificApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<HourlyResponse> GetThreeHourlyForecastAsync(object dataSource, object excludeParameterMetadata, object includeLocationName, object latitude, object longitude);
-
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>
-        /// Find nearest forecast data that matches the request criteria
-        /// </summary>
-        /// <param name="dataSource">The request data source must be BD1.</param>
-        /// <param name="excludeParameterMetadata">If true, exclude parameter metadata in the response. If false or undefined, the parameter metadata is returned.</param>
-        /// <param name="includeLocationName">If true, include location name in the response. If false or undefined, no location name is returned.</param>
-        /// <param name="latitude">The request latitude value in range -85/+85 expressed as a decimal fraction.</param>
-        /// <param name="longitude">The request longitude value in range -180/+180 expressed as a decimal fraction.</param>
-        /// <returns>The request was fulfilled successfully</returns>
-        /// <exception cref="SiteSpecificApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<HourlyResponse> GetThreeHourlyForecastAsync(object dataSource, object excludeParameterMetadata, object includeLocationName, object latitude, object longitude, System.Threading.CancellationToken cancellationToken);
-
-        /// <summary>
-        /// Find nearest forecast data that matches the request criteria
-        /// </summary>
-        /// <param name="dataSource">The request data source must be BD1.</param>
-        /// <param name="excludeParameterMetadata">If true, exclude parameter metadata in the response. If false or undefined, the parameter metadata is returned.</param>
-        /// <param name="includeLocationName">If true, include location name in the response. If false or undefined, no location name is returned.</param>
-        /// <param name="latitude">The request latitude value in range -85/+85 expressed as a decimal fraction.</param>
-        /// <param name="longitude">The request longitude value in range -180/+180 expressed as a decimal fraction.</param>
-        /// <returns>The request was fulfilled successfully</returns>
-        /// <exception cref="SiteSpecificApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<DailyResponse> GetDailyForecastAsync(object dataSource, object excludeParameterMetadata, object includeLocationName, object latitude, object longitude);
+        System.Threading.Tasks.Task<ThreeHourlyResponse> GetThreeHourlyForecastAsync(string dataSource, bool? excludeParameterMetadata, bool? includeLocationName, float latitude, float longitude);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -98,7 +73,32 @@ namespace Ae.MetOfficeDataHub
         /// <param name="longitude">The request longitude value in range -180/+180 expressed as a decimal fraction.</param>
         /// <returns>The request was fulfilled successfully</returns>
         /// <exception cref="SiteSpecificApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<DailyResponse> GetDailyForecastAsync(object dataSource, object excludeParameterMetadata, object includeLocationName, object latitude, object longitude, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<ThreeHourlyResponse> GetThreeHourlyForecastAsync(string dataSource, bool? excludeParameterMetadata, bool? includeLocationName, float latitude, float longitude, System.Threading.CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Find nearest forecast data that matches the request criteria
+        /// </summary>
+        /// <param name="dataSource">The request data source must be BD1.</param>
+        /// <param name="excludeParameterMetadata">If true, exclude parameter metadata in the response. If false or undefined, the parameter metadata is returned.</param>
+        /// <param name="includeLocationName">If true, include location name in the response. If false or undefined, no location name is returned.</param>
+        /// <param name="latitude">The request latitude value in range -85/+85 expressed as a decimal fraction.</param>
+        /// <param name="longitude">The request longitude value in range -180/+180 expressed as a decimal fraction.</param>
+        /// <returns>The request was fulfilled successfully</returns>
+        /// <exception cref="SiteSpecificApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<DailyResponse> GetDailyForecastAsync(string dataSource, bool? excludeParameterMetadata, bool? includeLocationName, float latitude, float longitude);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Find nearest forecast data that matches the request criteria
+        /// </summary>
+        /// <param name="dataSource">The request data source must be BD1.</param>
+        /// <param name="excludeParameterMetadata">If true, exclude parameter metadata in the response. If false or undefined, the parameter metadata is returned.</param>
+        /// <param name="includeLocationName">If true, include location name in the response. If false or undefined, no location name is returned.</param>
+        /// <param name="latitude">The request latitude value in range -85/+85 expressed as a decimal fraction.</param>
+        /// <param name="longitude">The request longitude value in range -180/+180 expressed as a decimal fraction.</param>
+        /// <returns>The request was fulfilled successfully</returns>
+        /// <exception cref="SiteSpecificApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<DailyResponse> GetDailyForecastAsync(string dataSource, bool? excludeParameterMetadata, bool? includeLocationName, float latitude, float longitude, System.Threading.CancellationToken cancellationToken);
 
     }
 
@@ -144,7 +144,7 @@ namespace Ae.MetOfficeDataHub
         /// <param name="longitude">The request longitude value in range -180/+180 expressed as a decimal fraction.</param>
         /// <returns>The request was fulfilled successfully</returns>
         /// <exception cref="SiteSpecificApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<HourlyResponse> GetHourlyForecastAsync(object dataSource, object excludeParameterMetadata, object includeLocationName, object latitude, object longitude)
+        public virtual System.Threading.Tasks.Task<HourlyResponse> GetHourlyForecastAsync(string dataSource, bool? excludeParameterMetadata, bool? includeLocationName, float latitude, float longitude)
         {
             return GetHourlyForecastAsync(dataSource, excludeParameterMetadata, includeLocationName, latitude, longitude, System.Threading.CancellationToken.None);
         }
@@ -160,7 +160,7 @@ namespace Ae.MetOfficeDataHub
         /// <param name="longitude">The request longitude value in range -180/+180 expressed as a decimal fraction.</param>
         /// <returns>The request was fulfilled successfully</returns>
         /// <exception cref="SiteSpecificApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<HourlyResponse> GetHourlyForecastAsync(object dataSource, object excludeParameterMetadata, object includeLocationName, object latitude, object longitude, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<HourlyResponse> GetHourlyForecastAsync(string dataSource, bool? excludeParameterMetadata, bool? includeLocationName, float latitude, float longitude, System.Threading.CancellationToken cancellationToken)
         {
             if (latitude == null)
                 throw new System.ArgumentNullException("latitude");
@@ -231,62 +231,6 @@ namespace Ae.MetOfficeDataHub
                             return objectResponse_.Object;
                         }
                         else
-                        if (status_ == 400)
-                        {
-                            var objectResponse_ = await ReadObjectResponseAsync<VndError>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            if (objectResponse_.Object == null)
-                            {
-                                throw new SiteSpecificApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
-                            }
-                            throw new SiteSpecificApiException<VndError>("The server could not service the request because it was malformed.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
-                        }
-                        else
-                        if (status_ == 403)
-                        {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new SiteSpecificApiException("Access to the requested URL is forbidden.", status_, responseText_, headers_, null);
-                        }
-                        else
-                        if (status_ == 404)
-                        {
-                            var objectResponse_ = await ReadObjectResponseAsync<VndError>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            if (objectResponse_.Object == null)
-                            {
-                                throw new SiteSpecificApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
-                            }
-                            throw new SiteSpecificApiException<VndError>("The server could not service the request because the requested resource did not exist", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
-                        }
-                        else
-                        if (status_ == 405)
-                        {
-                            var objectResponse_ = await ReadObjectResponseAsync<VndError>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            if (objectResponse_.Object == null)
-                            {
-                                throw new SiteSpecificApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
-                            }
-                            throw new SiteSpecificApiException<VndError>("The server could not service the request because it does not support the requested HTTP action - only get requests are supported", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
-                        }
-                        else
-                        if (status_ == 415)
-                        {
-                            var objectResponse_ = await ReadObjectResponseAsync<VndError>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            if (objectResponse_.Object == null)
-                            {
-                                throw new SiteSpecificApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
-                            }
-                            throw new SiteSpecificApiException<VndError>("The server could not service the request because the media type requested is not supported - this service only exposes json data", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
-                        }
-                        else
-                        if (status_ == 500)
-                        {
-                            var objectResponse_ = await ReadObjectResponseAsync<VndError>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            if (objectResponse_.Object == null)
-                            {
-                                throw new SiteSpecificApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
-                            }
-                            throw new SiteSpecificApiException<VndError>("The server encountered an internal error or misconfiguration and was unable to complete the request - this is not a recoverable error for a user of the API", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
-                        }
-                        else
                         {
                             var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new SiteSpecificApiException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
@@ -316,7 +260,7 @@ namespace Ae.MetOfficeDataHub
         /// <param name="longitude">The request longitude value in range -180/+180 expressed as a decimal fraction.</param>
         /// <returns>The request was fulfilled successfully</returns>
         /// <exception cref="SiteSpecificApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<HourlyResponse> GetThreeHourlyForecastAsync(object dataSource, object excludeParameterMetadata, object includeLocationName, object latitude, object longitude)
+        public virtual System.Threading.Tasks.Task<ThreeHourlyResponse> GetThreeHourlyForecastAsync(string dataSource, bool? excludeParameterMetadata, bool? includeLocationName, float latitude, float longitude)
         {
             return GetThreeHourlyForecastAsync(dataSource, excludeParameterMetadata, includeLocationName, latitude, longitude, System.Threading.CancellationToken.None);
         }
@@ -332,7 +276,7 @@ namespace Ae.MetOfficeDataHub
         /// <param name="longitude">The request longitude value in range -180/+180 expressed as a decimal fraction.</param>
         /// <returns>The request was fulfilled successfully</returns>
         /// <exception cref="SiteSpecificApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<HourlyResponse> GetThreeHourlyForecastAsync(object dataSource, object excludeParameterMetadata, object includeLocationName, object latitude, object longitude, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<ThreeHourlyResponse> GetThreeHourlyForecastAsync(string dataSource, bool? excludeParameterMetadata, bool? includeLocationName, float latitude, float longitude, System.Threading.CancellationToken cancellationToken)
         {
             if (latitude == null)
                 throw new System.ArgumentNullException("latitude");
@@ -395,68 +339,12 @@ namespace Ae.MetOfficeDataHub
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<HourlyResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<ThreeHourlyResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new SiteSpecificApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
                             }
                             return objectResponse_.Object;
-                        }
-                        else
-                        if (status_ == 400)
-                        {
-                            var objectResponse_ = await ReadObjectResponseAsync<VndError>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            if (objectResponse_.Object == null)
-                            {
-                                throw new SiteSpecificApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
-                            }
-                            throw new SiteSpecificApiException<VndError>("The server could not service the request because it was malformed.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
-                        }
-                        else
-                        if (status_ == 403)
-                        {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new SiteSpecificApiException("Access to the requested URL is forbidden.", status_, responseText_, headers_, null);
-                        }
-                        else
-                        if (status_ == 404)
-                        {
-                            var objectResponse_ = await ReadObjectResponseAsync<VndError>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            if (objectResponse_.Object == null)
-                            {
-                                throw new SiteSpecificApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
-                            }
-                            throw new SiteSpecificApiException<VndError>("The server could not service the request because the requested resource did not exist", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
-                        }
-                        else
-                        if (status_ == 405)
-                        {
-                            var objectResponse_ = await ReadObjectResponseAsync<VndError>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            if (objectResponse_.Object == null)
-                            {
-                                throw new SiteSpecificApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
-                            }
-                            throw new SiteSpecificApiException<VndError>("The server could not service the request because it does not support the requested HTTP action - only get requests are supported", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
-                        }
-                        else
-                        if (status_ == 415)
-                        {
-                            var objectResponse_ = await ReadObjectResponseAsync<VndError>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            if (objectResponse_.Object == null)
-                            {
-                                throw new SiteSpecificApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
-                            }
-                            throw new SiteSpecificApiException<VndError>("The server could not service the request because the media type requested is not supported - this service only exposes json data", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
-                        }
-                        else
-                        if (status_ == 500)
-                        {
-                            var objectResponse_ = await ReadObjectResponseAsync<VndError>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            if (objectResponse_.Object == null)
-                            {
-                                throw new SiteSpecificApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
-                            }
-                            throw new SiteSpecificApiException<VndError>("The server encountered an internal error or misconfiguration and was unable to complete the request - this is not a recoverable error for a user of the API", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                         else
                         {
@@ -488,7 +376,7 @@ namespace Ae.MetOfficeDataHub
         /// <param name="longitude">The request longitude value in range -180/+180 expressed as a decimal fraction.</param>
         /// <returns>The request was fulfilled successfully</returns>
         /// <exception cref="SiteSpecificApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<DailyResponse> GetDailyForecastAsync(object dataSource, object excludeParameterMetadata, object includeLocationName, object latitude, object longitude)
+        public virtual System.Threading.Tasks.Task<DailyResponse> GetDailyForecastAsync(string dataSource, bool? excludeParameterMetadata, bool? includeLocationName, float latitude, float longitude)
         {
             return GetDailyForecastAsync(dataSource, excludeParameterMetadata, includeLocationName, latitude, longitude, System.Threading.CancellationToken.None);
         }
@@ -504,7 +392,7 @@ namespace Ae.MetOfficeDataHub
         /// <param name="longitude">The request longitude value in range -180/+180 expressed as a decimal fraction.</param>
         /// <returns>The request was fulfilled successfully</returns>
         /// <exception cref="SiteSpecificApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<DailyResponse> GetDailyForecastAsync(object dataSource, object excludeParameterMetadata, object includeLocationName, object latitude, object longitude, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<DailyResponse> GetDailyForecastAsync(string dataSource, bool? excludeParameterMetadata, bool? includeLocationName, float latitude, float longitude, System.Threading.CancellationToken cancellationToken)
         {
             if (latitude == null)
                 throw new System.ArgumentNullException("latitude");
@@ -573,62 +461,6 @@ namespace Ae.MetOfficeDataHub
                                 throw new SiteSpecificApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
                             }
                             return objectResponse_.Object;
-                        }
-                        else
-                        if (status_ == 400)
-                        {
-                            var objectResponse_ = await ReadObjectResponseAsync<VndError>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            if (objectResponse_.Object == null)
-                            {
-                                throw new SiteSpecificApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
-                            }
-                            throw new SiteSpecificApiException<VndError>("The server could not service the request because it was malformed.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
-                        }
-                        else
-                        if (status_ == 403)
-                        {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new SiteSpecificApiException("Access to the requested URL is forbidden.", status_, responseText_, headers_, null);
-                        }
-                        else
-                        if (status_ == 404)
-                        {
-                            var objectResponse_ = await ReadObjectResponseAsync<VndError>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            if (objectResponse_.Object == null)
-                            {
-                                throw new SiteSpecificApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
-                            }
-                            throw new SiteSpecificApiException<VndError>("The server could not service the request because the requested resource did not exist", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
-                        }
-                        else
-                        if (status_ == 405)
-                        {
-                            var objectResponse_ = await ReadObjectResponseAsync<VndError>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            if (objectResponse_.Object == null)
-                            {
-                                throw new SiteSpecificApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
-                            }
-                            throw new SiteSpecificApiException<VndError>("The server could not service the request because it does not support the requested HTTP action - only get requests are supported", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
-                        }
-                        else
-                        if (status_ == 415)
-                        {
-                            var objectResponse_ = await ReadObjectResponseAsync<VndError>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            if (objectResponse_.Object == null)
-                            {
-                                throw new SiteSpecificApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
-                            }
-                            throw new SiteSpecificApiException<VndError>("The server could not service the request because the media type requested is not supported - this service only exposes json data", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
-                        }
-                        else
-                        if (status_ == 500)
-                        {
-                            var objectResponse_ = await ReadObjectResponseAsync<VndError>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            if (objectResponse_.Object == null)
-                            {
-                                throw new SiteSpecificApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
-                            }
-                            throw new SiteSpecificApiException<VndError>("The server encountered an internal error or misconfiguration and was unable to complete the request - this is not a recoverable error for a user of the API", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                         else
                         {
@@ -763,99 +595,10 @@ namespace Ae.MetOfficeDataHub
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class HourlyResponse
+    public partial class Location
     {
-        [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Type { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("features", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<Features> Features { get; set; }
-
-        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
-
-        [Newtonsoft.Json.JsonExtensionData]
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
-            set { _additionalProperties = value; }
-        }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class DailyResponse
-    {
-        [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Type { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("features", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<features> Features { get; set; }
-
-        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
-
-        [Newtonsoft.Json.JsonExtensionData]
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
-            set { _additionalProperties = value; }
-        }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class VndError
-    {
-        [Newtonsoft.Json.JsonProperty("logref", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Logref { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("message", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Message { get; set; }
-
-        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
-
-        [Newtonsoft.Json.JsonExtensionData]
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
-            set { _additionalProperties = value; }
-        }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class Features
-    {
-        [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Type { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("geometry", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Geometry Geometry { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("properties", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Properties Properties { get; set; }
-
-        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
-
-        [Newtonsoft.Json.JsonExtensionData]
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
-            set { _additionalProperties = value; }
-        }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class features
-    {
-        [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Type { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("geometry", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Geometry2 Geometry { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("properties", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Properties2 Properties { get; set; }
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
 
@@ -889,7 +632,27 @@ namespace Ae.MetOfficeDataHub
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class Properties
+    public partial class Feature
+    {
+        [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Type { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("geometry", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Geometry Geometry { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class FeatureProperties
     {
         [Newtonsoft.Json.JsonProperty("location", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Location Location { get; set; }
@@ -898,10 +661,7 @@ namespace Ae.MetOfficeDataHub
         public double RequestPointDistance { get; set; }
 
         [Newtonsoft.Json.JsonProperty("modelRunDate", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ModelRunDate { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("timeSeries", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<TimeSeries> TimeSeries { get; set; }
+        public System.DateTimeOffset ModelRunDate { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
 
@@ -915,13 +675,29 @@ namespace Ae.MetOfficeDataHub
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class Geometry2
+    public partial class HourlyFeatureProperties : FeatureProperties
+    {
+        [Newtonsoft.Json.JsonProperty("timeSeries", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<HourlyTimeSeries> TimeSeries { get; set; }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class HourlyFeature : Feature
+    {
+        [Newtonsoft.Json.JsonProperty("properties", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public HourlyFeatureProperties Properties { get; set; }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class HourlyResponse
     {
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Type { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("coordinates", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<double> Coordinates { get; set; }
+        [Newtonsoft.Json.JsonProperty("features", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<HourlyFeature> Features { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
 
@@ -935,19 +711,29 @@ namespace Ae.MetOfficeDataHub
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class Properties2
+    public partial class ThreeHourlyFeatureProperties : FeatureProperties
     {
-        [Newtonsoft.Json.JsonProperty("location", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Location2 Location { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("requestPointDistance", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double RequestPointDistance { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("modelRunDate", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ModelRunDate { get; set; }
-
         [Newtonsoft.Json.JsonProperty("timeSeries", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<timeSeries> TimeSeries { get; set; }
+        public System.Collections.Generic.ICollection<ThreeHourlyTimeSeries> TimeSeries { get; set; }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class ThreeHourlyFeature : Feature
+    {
+        [Newtonsoft.Json.JsonProperty("properties", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ThreeHourlyFeatureProperties Properties { get; set; }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class ThreeHourlyResponse
+    {
+        [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Type { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("features", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<ThreeHourlyFeature> Features { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
 
@@ -961,10 +747,29 @@ namespace Ae.MetOfficeDataHub
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class Location
+    public partial class DailyFeatureProperties : FeatureProperties
     {
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; }
+        [Newtonsoft.Json.JsonProperty("timeSeries", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<DailyTimeSeries> TimeSeries { get; set; }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class DailyFeature : Feature
+    {
+        [Newtonsoft.Json.JsonProperty("properties", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public DailyFeatureProperties Properties { get; set; }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class DailyResponse
+    {
+        [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Type { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("features", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<DailyFeature> Features { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
 
@@ -981,61 +786,7 @@ namespace Ae.MetOfficeDataHub
     public partial class TimeSeries
     {
         [Newtonsoft.Json.JsonProperty("time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Time { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("screenTemperature", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double ScreenTemperature { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("maxScreenAirTemp", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double MaxScreenAirTemp { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("minScreenAirTemp", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double MinScreenAirTemp { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("screenDewPointTemperature", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double ScreenDewPointTemperature { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("feelsLikeTemperature", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double FeelsLikeTemperature { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("windSpeed10m", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double WindSpeed10m { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("windDirectionFrom10m", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int WindDirectionFrom10m { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("windGustSpeed10m", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double WindGustSpeed10m { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("max10mWindGust", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Max10mWindGust { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("visibility", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Visibility { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("screenRelativeHumidity", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double ScreenRelativeHumidity { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("mslp", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Mslp { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("uvIndex", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int UvIndex { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("significantWeatherCode", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int SignificantWeatherCode { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("precipitationRate", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public float PrecipitationRate { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("totalPrecipAmount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public float TotalPrecipAmount { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("totalSnowAmount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int TotalSnowAmount { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("probOfPrecipitation", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int ProbOfPrecipitation { get; set; }
+        public System.DateTimeOffset Time { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
 
@@ -1049,28 +800,8 @@ namespace Ae.MetOfficeDataHub
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class Location2
+    public partial class DailyTimeSeries : TimeSeries
     {
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; }
-
-        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
-
-        [Newtonsoft.Json.JsonExtensionData]
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
-            set { _additionalProperties = value; }
-        }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class timeSeries
-    {
-        [Newtonsoft.Json.JsonProperty("time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Time { get; set; }
-
         [Newtonsoft.Json.JsonProperty("midday10MWindSpeed", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double Midday10MWindSpeed { get; set; }
 
@@ -1194,14 +925,132 @@ namespace Ae.MetOfficeDataHub
         [Newtonsoft.Json.JsonProperty("dayProbabilityOfSferics", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int DayProbabilityOfSferics { get; set; }
 
-        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+    }
 
-        [Newtonsoft.Json.JsonExtensionData]
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
-            set { _additionalProperties = value; }
-        }
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class HourlyTimeSeries : TimeSeries
+    {
+        [Newtonsoft.Json.JsonProperty("screenTemperature", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double ScreenTemperature { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("maxScreenAirTemp", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double MaxScreenAirTemp { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("minScreenAirTemp", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double MinScreenAirTemp { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("screenDewPointTemperature", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double ScreenDewPointTemperature { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("feelsLikeTemperature", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double FeelsLikeTemperature { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("windSpeed10m", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double WindSpeed10m { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("windDirectionFrom10m", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int WindDirectionFrom10m { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("windGustSpeed10m", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double WindGustSpeed10m { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("max10mWindGust", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double Max10mWindGust { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("visibility", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Visibility { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("screenRelativeHumidity", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double ScreenRelativeHumidity { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("mslp", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Mslp { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("uvIndex", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int UvIndex { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("significantWeatherCode", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int SignificantWeatherCode { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("precipitationRate", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public float PrecipitationRate { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("totalPrecipAmount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public float TotalPrecipAmount { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("totalSnowAmount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int TotalSnowAmount { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("probOfPrecipitation", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int ProbOfPrecipitation { get; set; }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class ThreeHourlyTimeSeries : TimeSeries
+    {
+        [Newtonsoft.Json.JsonProperty("maxScreenAirTemp", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double MaxScreenAirTemp { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("minScreenAirTemp", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double MinScreenAirTemp { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("max10mWindGust", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double Max10mWindGust { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("significantWeatherCode", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int SignificantWeatherCode { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("totalPrecipAmount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int TotalPrecipAmount { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("totalSnowAmount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int TotalSnowAmount { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("windSpeed10m", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double WindSpeed10m { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("windDirectionFrom10m", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int WindDirectionFrom10m { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("windGustSpeed10m", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double WindGustSpeed10m { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("visibility", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Visibility { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("mslp", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Mslp { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("screenRelativeHumidity", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double ScreenRelativeHumidity { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("feelsLikeTemp", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double FeelsLikeTemp { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("uvIndex", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int UvIndex { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("probOfPrecipitation", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int ProbOfPrecipitation { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("probOfSnow", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int ProbOfSnow { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("probOfHeavySnow", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int ProbOfHeavySnow { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("probOfRain", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int ProbOfRain { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("probOfHeavyRain", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int ProbOfHeavyRain { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("probOfHail", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int ProbOfHail { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("probOfSferics", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int ProbOfSferics { get; set; }
 
     }
 

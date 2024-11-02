@@ -1,4 +1,5 @@
 using Ae.MetOfficeDataHub;
+using Newtonsoft.Json;
 
 namespace tests;
 
@@ -30,7 +31,22 @@ public class SiteSpecificClientTests
 
         var client = new SiteSpecificClient(httpClient);
 
-        var response = await client.GetHourlyForecastAsync("BD1", true, true, "51.509865", "-0.118092");
+        var response = await client.GetHourlyForecastAsync("BD1", true, true, 51.509865f, -0.118092f);
+
+        Assert.Empty(response.AdditionalProperties);
+        HourlyFeature feature = Assert.Single(response.Features);
+        Assert.Empty(feature.AdditionalProperties);
+        Assert.Equal("Feature", feature.Type);
+        Assert.Empty(feature.Geometry.AdditionalProperties);
+        Assert.Equal("{\"type\":\"Point\",\"coordinates\":[-0.12480000000000001,51.5081,11.0]}", JsonConvert.SerializeObject(feature.Geometry));
+        HourlyFeatureProperties properties = feature.Properties;
+        Assert.Empty(properties.AdditionalProperties);
+        Assert.Empty(properties.Location.AdditionalProperties);
+        Assert.NotEmpty(properties.TimeSeries);
+        foreach (HourlyTimeSeries series in properties.TimeSeries)
+        {
+            Assert.Empty(series.AdditionalProperties);
+        }
     }
 
     [Fact]
@@ -45,7 +61,22 @@ public class SiteSpecificClientTests
 
         var client = new SiteSpecificClient(httpClient);
 
-        var response = await client.GetThreeHourlyForecastAsync("BD1", true, true, "51.509865", "-0.118092");
+        ThreeHourlyResponse response = await client.GetThreeHourlyForecastAsync("BD1", true, true, 51.509865f, -0.118092f);
+
+        Assert.Empty(response.AdditionalProperties);
+        ThreeHourlyFeature feature = Assert.Single(response.Features);
+        Assert.Empty(feature.AdditionalProperties);
+        Assert.Equal("Feature", feature.Type);
+        Assert.Empty(feature.Geometry.AdditionalProperties);
+        Assert.Equal("{\"type\":\"Point\",\"coordinates\":[-0.12480000000000001,51.5081,11.0]}", JsonConvert.SerializeObject(feature.Geometry));
+        ThreeHourlyFeatureProperties properties = feature.Properties;
+        Assert.Empty(properties.AdditionalProperties);
+        Assert.Empty(properties.Location.AdditionalProperties);
+        Assert.NotEmpty(properties.TimeSeries);
+        foreach (ThreeHourlyTimeSeries series in properties.TimeSeries)
+        {
+            Assert.Empty(series.AdditionalProperties);
+        }
     }
 
     [Fact]
@@ -60,6 +91,21 @@ public class SiteSpecificClientTests
 
         var client = new SiteSpecificClient(httpClient);
 
-        var response = await client.GetDailyForecastAsync("BD1", true, true, "51.509865", "-0.118092");
+        DailyResponse response = await client.GetDailyForecastAsync("BD1", true, true, 51.509865f, -0.118092f);
+
+        Assert.Empty(response.AdditionalProperties);
+        DailyFeature feature = Assert.Single(response.Features);
+        Assert.Empty(feature.AdditionalProperties);
+        Assert.Equal("Feature", feature.Type);
+        Assert.Empty(feature.Geometry.AdditionalProperties);
+        Assert.Equal("{\"type\":\"Point\",\"coordinates\":[-0.12480000000000001,51.5081,11.0]}", JsonConvert.SerializeObject(feature.Geometry));
+        DailyFeatureProperties properties = feature.Properties;
+        Assert.Empty(properties.AdditionalProperties);
+        Assert.Empty(properties.Location.AdditionalProperties);
+        Assert.NotEmpty(properties.TimeSeries);
+        foreach (DailyTimeSeries series in properties.TimeSeries)
+        {
+            Assert.Empty(series.AdditionalProperties);
+        }
     }
 }
