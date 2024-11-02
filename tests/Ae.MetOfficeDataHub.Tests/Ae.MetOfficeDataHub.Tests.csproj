@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\Ae.MetOfficeDataHub.csproj" />
+    <ProjectReference Include="..\..\src\Ae.MetOfficeDataHub\Ae.MetOfficeDataHub.csproj" />
   </ItemGroup>
 
   <ItemGroup>
