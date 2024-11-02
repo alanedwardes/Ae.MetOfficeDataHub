@@ -139,6 +139,8 @@ components:
       properties: 
         name: 
           type: string
+        licence:
+          type: string
     Geometry:
       type: object
       properties: 
@@ -190,6 +192,10 @@ components:
           type: array
           items: 
             $ref: '#/components/schemas/HourlyFeature'
+        parameters: 
+          type: array
+          items: 
+            $ref: '#/components/schemas/Parameters'
     ThreeHourlyFeatureProperties:
       allOf:
         - $ref: '#/components/schemas/FeatureProperties'
@@ -215,6 +221,10 @@ components:
           type: array
           items: 
             $ref: '#/components/schemas/ThreeHourlyFeature'
+        parameters: 
+          type: array
+          items: 
+            $ref: '#/components/schemas/Parameters'
     DailyFeatureProperties:
       allOf:
         - $ref: '#/components/schemas/FeatureProperties'
@@ -240,6 +250,10 @@ components:
           type: array
           items: 
             $ref: '#/components/schemas/DailyFeature'
+        parameters: 
+          type: array
+          items: 
+            $ref: '#/components/schemas/Parameters'
     TimeSeries:
       type: object
       properties:
@@ -401,8 +415,8 @@ components:
               type: number
               format: float
             totalSnowAmount: 
-              type: integer
-              format: int32
+              type: number
+              format: float
             probOfPrecipitation: 
               type: integer
               format: int32
@@ -421,11 +435,11 @@ components:
               type: integer
               format: int32
             totalPrecipAmount:
-              type: integer
-              format: int32
+              type: number
+              format: float
             totalSnowAmount:
-              type: integer
-              format: int32
+              type: number
+              format: float
             windSpeed10m:
               type: number
             windDirectionFrom10m:
@@ -467,3 +481,30 @@ components:
             probOfSferics:
               type: integer
               format: int32
+    Symbol:
+      type: object
+      properties:
+        value:
+          type: string
+        type:
+          type: string
+    Unit:
+      type: object
+      properties:
+        label:
+          type: string
+        symbol:
+          $ref: '#/components/schemas/Symbol'
+    Parameter:
+      type: object
+      properties:
+        type:
+          type: string
+        description:
+          type: string
+        unit:
+          $ref: '#/components/schemas/Unit'
+    Parameters:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/Parameter'

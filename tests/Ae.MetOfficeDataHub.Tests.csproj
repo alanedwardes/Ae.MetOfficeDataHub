@@ -27,13 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Responses\site-specific-daily.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Responses\site-specific-hourly.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Responses\site-specific-three-hourly.json">
+    <None Update="Responses\*.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
