@@ -1,5 +1,4 @@
 using Ae.MetOfficeDataHub;
-using Newtonsoft.Json;
 
 namespace tests;
 
@@ -38,7 +37,7 @@ public class SiteSpecificClientTests
             BaseAddress = new Uri("https://data.hub.api.metoffice.gov.uk/sitespecific/v0/")
         };
 
-        var client = new SiteSpecificClient(httpClient);
+        var client = new MetOfficeDataHubClient(httpClient);
 
         var response = await client.GetHourlyForecastAsync("BD1", true, true, 51.509865f, -0.118092f);
         if (response.Parameters != null)
@@ -88,7 +87,7 @@ public class SiteSpecificClientTests
             BaseAddress = new Uri("https://data.hub.api.metoffice.gov.uk/sitespecific/v0/")
         };
 
-        var client = new SiteSpecificClient(httpClient);
+        var client = new MetOfficeDataHubClient(httpClient);
 
         ThreeHourlyResponse response = await client.GetThreeHourlyForecastAsync("BD1", true, true, 51.509865f, -0.118092f);
         if (response.Parameters != null)
@@ -138,7 +137,7 @@ public class SiteSpecificClientTests
             BaseAddress = new Uri("https://data.hub.api.metoffice.gov.uk/sitespecific/v0/")
         };
 
-        var client = new SiteSpecificClient(httpClient);
+        var client = new MetOfficeDataHubClient(httpClient);
 
         DailyResponse response = await client.GetDailyForecastAsync("BD1", true, true, 51.509865f, -0.118092f);
         if (response.Parameters != null)

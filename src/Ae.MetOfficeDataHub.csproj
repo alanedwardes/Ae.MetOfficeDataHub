@@ -10,7 +10,7 @@
 	</PropertyGroup>
 
 	<Target Name="NSwag" AfterTargets="Build">
-		<Exec Command="$(NSwagExe) run SiteSpecificClient.nswag /variables:Configuration=$(Configuration)" />
+		<Exec Command="$(NSwagExe) run MetOfficeDataHub.nswag /variables:Configuration=$(Configuration)" />
 	</Target>
 
 	<ItemGroup>

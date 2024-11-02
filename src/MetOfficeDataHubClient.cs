@@ -23,7 +23,7 @@ namespace Ae.MetOfficeDataHub
     using System = global::System;
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial interface ISiteSpecificClient
+    public partial interface IMetOfficeDataHubClient
     {
         /// <summary>
         /// Find nearest forecast data that matches the request criteria
@@ -34,7 +34,7 @@ namespace Ae.MetOfficeDataHub
         /// <param name="latitude">The request latitude value in range -85/+85 expressed as a decimal fraction.</param>
         /// <param name="longitude">The request longitude value in range -180/+180 expressed as a decimal fraction.</param>
         /// <returns>The request was fulfilled successfully</returns>
-        /// <exception cref="SiteSpecificApiException">A server side error occurred.</exception>
+        /// <exception cref="MetOfficeDataHubApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<HourlyResponse> GetHourlyForecastAsync(string dataSource, bool? excludeParameterMetadata, bool? includeLocationName, float latitude, float longitude);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -47,7 +47,7 @@ namespace Ae.MetOfficeDataHub
         /// <param name="latitude">The request latitude value in range -85/+85 expressed as a decimal fraction.</param>
         /// <param name="longitude">The request longitude value in range -180/+180 expressed as a decimal fraction.</param>
         /// <returns>The request was fulfilled successfully</returns>
-        /// <exception cref="SiteSpecificApiException">A server side error occurred.</exception>
+        /// <exception cref="MetOfficeDataHubApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<HourlyResponse> GetHourlyForecastAsync(string dataSource, bool? excludeParameterMetadata, bool? includeLocationName, float latitude, float longitude, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace Ae.MetOfficeDataHub
         /// <param name="latitude">The request latitude value in range -85/+85 expressed as a decimal fraction.</param>
         /// <param name="longitude">The request longitude value in range -180/+180 expressed as a decimal fraction.</param>
         /// <returns>The request was fulfilled successfully</returns>
-        /// <exception cref="SiteSpecificApiException">A server side error occurred.</exception>
+        /// <exception cref="MetOfficeDataHubApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<ThreeHourlyResponse> GetThreeHourlyForecastAsync(string dataSource, bool? excludeParameterMetadata, bool? includeLocationName, float latitude, float longitude);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -72,7 +72,7 @@ namespace Ae.MetOfficeDataHub
         /// <param name="latitude">The request latitude value in range -85/+85 expressed as a decimal fraction.</param>
         /// <param name="longitude">The request longitude value in range -180/+180 expressed as a decimal fraction.</param>
         /// <returns>The request was fulfilled successfully</returns>
-        /// <exception cref="SiteSpecificApiException">A server side error occurred.</exception>
+        /// <exception cref="MetOfficeDataHubApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<ThreeHourlyResponse> GetThreeHourlyForecastAsync(string dataSource, bool? excludeParameterMetadata, bool? includeLocationName, float latitude, float longitude, System.Threading.CancellationToken cancellationToken);
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace Ae.MetOfficeDataHub
         /// <param name="latitude">The request latitude value in range -85/+85 expressed as a decimal fraction.</param>
         /// <param name="longitude">The request longitude value in range -180/+180 expressed as a decimal fraction.</param>
         /// <returns>The request was fulfilled successfully</returns>
-        /// <exception cref="SiteSpecificApiException">A server side error occurred.</exception>
+        /// <exception cref="MetOfficeDataHubApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<DailyResponse> GetDailyForecastAsync(string dataSource, bool? excludeParameterMetadata, bool? includeLocationName, float latitude, float longitude);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -97,20 +97,20 @@ namespace Ae.MetOfficeDataHub
         /// <param name="latitude">The request latitude value in range -85/+85 expressed as a decimal fraction.</param>
         /// <param name="longitude">The request longitude value in range -180/+180 expressed as a decimal fraction.</param>
         /// <returns>The request was fulfilled successfully</returns>
-        /// <exception cref="SiteSpecificApiException">A server side error occurred.</exception>
+        /// <exception cref="MetOfficeDataHubApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<DailyResponse> GetDailyForecastAsync(string dataSource, bool? excludeParameterMetadata, bool? includeLocationName, float latitude, float longitude, System.Threading.CancellationToken cancellationToken);
 
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class SiteSpecificClient : ISiteSpecificClient
+    public partial class MetOfficeDataHubClient : IMetOfficeDataHubClient
     {
         private System.Net.Http.HttpClient _httpClient;
         private static System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(CreateSerializerSettings, true);
         private Newtonsoft.Json.JsonSerializerSettings _instanceSettings;
 
     #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-        public SiteSpecificClient(System.Net.Http.HttpClient httpClient)
+        public MetOfficeDataHubClient(System.Net.Http.HttpClient httpClient)
     #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         {
             _httpClient = httpClient;
@@ -143,7 +143,7 @@ namespace Ae.MetOfficeDataHub
         /// <param name="latitude">The request latitude value in range -85/+85 expressed as a decimal fraction.</param>
         /// <param name="longitude">The request longitude value in range -180/+180 expressed as a decimal fraction.</param>
         /// <returns>The request was fulfilled successfully</returns>
-        /// <exception cref="SiteSpecificApiException">A server side error occurred.</exception>
+        /// <exception cref="MetOfficeDataHubApiException">A server side error occurred.</exception>
         public virtual System.Threading.Tasks.Task<HourlyResponse> GetHourlyForecastAsync(string dataSource, bool? excludeParameterMetadata, bool? includeLocationName, float latitude, float longitude)
         {
             return GetHourlyForecastAsync(dataSource, excludeParameterMetadata, includeLocationName, latitude, longitude, System.Threading.CancellationToken.None);
@@ -159,7 +159,7 @@ namespace Ae.MetOfficeDataHub
         /// <param name="latitude">The request latitude value in range -85/+85 expressed as a decimal fraction.</param>
         /// <param name="longitude">The request longitude value in range -180/+180 expressed as a decimal fraction.</param>
         /// <returns>The request was fulfilled successfully</returns>
-        /// <exception cref="SiteSpecificApiException">A server side error occurred.</exception>
+        /// <exception cref="MetOfficeDataHubApiException">A server side error occurred.</exception>
         public virtual async System.Threading.Tasks.Task<HourlyResponse> GetHourlyForecastAsync(string dataSource, bool? excludeParameterMetadata, bool? includeLocationName, float latitude, float longitude, System.Threading.CancellationToken cancellationToken)
         {
             if (latitude == null)
@@ -226,14 +226,14 @@ namespace Ae.MetOfficeDataHub
                             var objectResponse_ = await ReadObjectResponseAsync<HourlyResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
-                                throw new SiteSpecificApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                                throw new MetOfficeDataHubApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
                             }
                             return objectResponse_.Object;
                         }
                         else
                         {
                             var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new SiteSpecificApiException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                            throw new MetOfficeDataHubApiException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
                         }
                     }
                     finally
@@ -259,7 +259,7 @@ namespace Ae.MetOfficeDataHub
         /// <param name="latitude">The request latitude value in range -85/+85 expressed as a decimal fraction.</param>
         /// <param name="longitude">The request longitude value in range -180/+180 expressed as a decimal fraction.</param>
         /// <returns>The request was fulfilled successfully</returns>
-        /// <exception cref="SiteSpecificApiException">A server side error occurred.</exception>
+        /// <exception cref="MetOfficeDataHubApiException">A server side error occurred.</exception>
         public virtual System.Threading.Tasks.Task<ThreeHourlyResponse> GetThreeHourlyForecastAsync(string dataSource, bool? excludeParameterMetadata, bool? includeLocationName, float latitude, float longitude)
         {
             return GetThreeHourlyForecastAsync(dataSource, excludeParameterMetadata, includeLocationName, latitude, longitude, System.Threading.CancellationToken.None);
@@ -275,7 +275,7 @@ namespace Ae.MetOfficeDataHub
         /// <param name="latitude">The request latitude value in range -85/+85 expressed as a decimal fraction.</param>
         /// <param name="longitude">The request longitude value in range -180/+180 expressed as a decimal fraction.</param>
         /// <returns>The request was fulfilled successfully</returns>
-        /// <exception cref="SiteSpecificApiException">A server side error occurred.</exception>
+        /// <exception cref="MetOfficeDataHubApiException">A server side error occurred.</exception>
         public virtual async System.Threading.Tasks.Task<ThreeHourlyResponse> GetThreeHourlyForecastAsync(string dataSource, bool? excludeParameterMetadata, bool? includeLocationName, float latitude, float longitude, System.Threading.CancellationToken cancellationToken)
         {
             if (latitude == null)
@@ -342,14 +342,14 @@ namespace Ae.MetOfficeDataHub
                             var objectResponse_ = await ReadObjectResponseAsync<ThreeHourlyResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
-                                throw new SiteSpecificApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                                throw new MetOfficeDataHubApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
                             }
                             return objectResponse_.Object;
                         }
                         else
                         {
                             var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new SiteSpecificApiException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                            throw new MetOfficeDataHubApiException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
                         }
                     }
                     finally
@@ -375,7 +375,7 @@ namespace Ae.MetOfficeDataHub
         /// <param name="latitude">The request latitude value in range -85/+85 expressed as a decimal fraction.</param>
         /// <param name="longitude">The request longitude value in range -180/+180 expressed as a decimal fraction.</param>
         /// <returns>The request was fulfilled successfully</returns>
-        /// <exception cref="SiteSpecificApiException">A server side error occurred.</exception>
+        /// <exception cref="MetOfficeDataHubApiException">A server side error occurred.</exception>
         public virtual System.Threading.Tasks.Task<DailyResponse> GetDailyForecastAsync(string dataSource, bool? excludeParameterMetadata, bool? includeLocationName, float latitude, float longitude)
         {
             return GetDailyForecastAsync(dataSource, excludeParameterMetadata, includeLocationName, latitude, longitude, System.Threading.CancellationToken.None);
@@ -391,7 +391,7 @@ namespace Ae.MetOfficeDataHub
         /// <param name="latitude">The request latitude value in range -85/+85 expressed as a decimal fraction.</param>
         /// <param name="longitude">The request longitude value in range -180/+180 expressed as a decimal fraction.</param>
         /// <returns>The request was fulfilled successfully</returns>
-        /// <exception cref="SiteSpecificApiException">A server side error occurred.</exception>
+        /// <exception cref="MetOfficeDataHubApiException">A server side error occurred.</exception>
         public virtual async System.Threading.Tasks.Task<DailyResponse> GetDailyForecastAsync(string dataSource, bool? excludeParameterMetadata, bool? includeLocationName, float latitude, float longitude, System.Threading.CancellationToken cancellationToken)
         {
             if (latitude == null)
@@ -458,14 +458,14 @@ namespace Ae.MetOfficeDataHub
                             var objectResponse_ = await ReadObjectResponseAsync<DailyResponse>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
-                                throw new SiteSpecificApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                                throw new MetOfficeDataHubApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
                             }
                             return objectResponse_.Object;
                         }
                         else
                         {
                             var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new SiteSpecificApiException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                            throw new MetOfficeDataHubApiException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
                         }
                     }
                     finally
@@ -515,7 +515,7 @@ namespace Ae.MetOfficeDataHub
                 catch (Newtonsoft.Json.JsonException exception)
                 {
                     var message = "Could not deserialize the response body string as " + typeof(T).FullName + ".";
-                    throw new SiteSpecificApiException(message, (int)response.StatusCode, responseText, headers, exception);
+                    throw new MetOfficeDataHubApiException(message, (int)response.StatusCode, responseText, headers, exception);
                 }
             }
             else
@@ -534,7 +534,7 @@ namespace Ae.MetOfficeDataHub
                 catch (Newtonsoft.Json.JsonException exception)
                 {
                     var message = "Could not deserialize the response body stream as " + typeof(T).FullName + ".";
-                    throw new SiteSpecificApiException(message, (int)response.StatusCode, string.Empty, headers, exception);
+                    throw new MetOfficeDataHubApiException(message, (int)response.StatusCode, string.Empty, headers, exception);
                 }
             }
         }
@@ -1138,7 +1138,7 @@ namespace Ae.MetOfficeDataHub
 
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class SiteSpecificApiException : System.Exception
+    public partial class MetOfficeDataHubApiException : System.Exception
     {
         public int StatusCode { get; private set; }
 
@@ -1146,7 +1146,7 @@ namespace Ae.MetOfficeDataHub
 
         public System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> Headers { get; private set; }
 
-        public SiteSpecificApiException(string message, int statusCode, string response, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers, System.Exception innerException)
+        public MetOfficeDataHubApiException(string message, int statusCode, string response, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers, System.Exception innerException)
             : base(message + "\n\nStatus: " + statusCode + "\nResponse: \n" + ((response == null) ? "(null)" : response.Substring(0, response.Length >= 512 ? 512 : response.Length)), innerException)
         {
             StatusCode = statusCode;
@@ -1161,11 +1161,11 @@ namespace Ae.MetOfficeDataHub
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class SiteSpecificApiException<TResult> : SiteSpecificApiException
+    public partial class MetOfficeDataHubApiException<TResult> : MetOfficeDataHubApiException
     {
         public TResult Result { get; private set; }
 
-        public SiteSpecificApiException(string message, int statusCode, string response, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers, TResult result, System.Exception innerException)
+        public MetOfficeDataHubApiException(string message, int statusCode, string response, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers, TResult result, System.Exception innerException)
             : base(message, statusCode, response, headers, innerException)
         {
             Result = result;

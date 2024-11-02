@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ae.MetOfficeDataHub.SiteSpe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ae.MetOfficeDataHub.Tests", "tests\Ae.MetOfficeDataHub.Tests.csproj", "{6DC404F7-B2EC-4A39-999F-1226679FB221}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ae.MetOfficeDataHub", "src\Ae.MetOfficeDataHub.csproj", "{F43B6432-8DD2-42F6-AB59-63F56C25B635}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{6DC404F7-B2EC-4A39-999F-1226679FB221}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DC404F7-B2EC-4A39-999F-1226679FB221}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DC404F7-B2EC-4A39-999F-1226679FB221}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F43B6432-8DD2-42F6-AB59-63F56C25B635}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F43B6432-8DD2-42F6-AB59-63F56C25B635}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F43B6432-8DD2-42F6-AB59-63F56C25B635}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F43B6432-8DD2-42F6-AB59-63F56C25B635}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

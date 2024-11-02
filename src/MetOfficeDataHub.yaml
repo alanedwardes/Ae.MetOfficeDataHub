@@ -1,13 +1,4 @@
 openapi: 3.0.1
-info:
-  title: Site Specific Forecast
-  description: This API provides weather forecast data for a requested coordinate defined by a latitude and longitude. The format of the data is GeoJSON.
-  contact:
-    name: Met Office
-    url: https://www.metoffice.gov.uk/
-  version: v0
-security:
-  - APIKey: []
 paths:
   /point/hourly:
     get:
