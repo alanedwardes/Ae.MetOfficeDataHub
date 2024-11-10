@@ -1,6 +1,6 @@
 openapi: 3.0.1
 paths:
-  /point/hourly:
+  /sitespecific/v0/point/hourly:
     get:
       summary: Find nearest forecast data that matches the request criteria
       operationId: GetHourlyForecast
@@ -41,7 +41,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HourlyResponse'
-  /point/three-hourly:
+  /sitespecific/v0/point/three-hourly:
     get:
       summary: Find nearest forecast data that matches the request criteria
       operationId: GetThreeHourlyForecast
@@ -82,7 +82,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ThreeHourlyResponse'
-  /point/daily:
+  /sitespecific/v0/point/daily:
     get:
       summary: Find nearest forecast data that matches the request criteria
       operationId: GetDailyForecast

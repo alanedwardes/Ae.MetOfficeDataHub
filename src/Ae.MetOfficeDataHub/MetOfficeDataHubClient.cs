@@ -179,8 +179,8 @@ namespace Ae.MetOfficeDataHub
 
                     var urlBuilder_ = new System.Text.StringBuilder();
                 
-                    // Operation Path: "point/hourly"
-                    urlBuilder_.Append("point/hourly");
+                    // Operation Path: "sitespecific/v0/point/hourly"
+                    urlBuilder_.Append("sitespecific/v0/point/hourly");
                     urlBuilder_.Append('?');
                     if (dataSource != null)
                     {
@@ -295,8 +295,8 @@ namespace Ae.MetOfficeDataHub
 
                     var urlBuilder_ = new System.Text.StringBuilder();
                 
-                    // Operation Path: "point/three-hourly"
-                    urlBuilder_.Append("point/three-hourly");
+                    // Operation Path: "sitespecific/v0/point/three-hourly"
+                    urlBuilder_.Append("sitespecific/v0/point/three-hourly");
                     urlBuilder_.Append('?');
                     if (dataSource != null)
                     {
@@ -411,8 +411,8 @@ namespace Ae.MetOfficeDataHub
 
                     var urlBuilder_ = new System.Text.StringBuilder();
                 
-                    // Operation Path: "point/daily"
-                    urlBuilder_.Append("point/daily");
+                    // Operation Path: "sitespecific/v0/point/daily"
+                    urlBuilder_.Append("sitespecific/v0/point/daily");
                     urlBuilder_.Append('?');
                     if (dataSource != null)
                     {
